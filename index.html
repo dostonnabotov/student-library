@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./index.js" defer></script>
+    <title>Student Library</title>
+  </head>
+  <body>
+    <main>
+      <div class="container flow">
+        <h1 class="text-center">Student Library</h1>
+        <!-- Library Form -->
+        <form action="" class="form" data-add-form>
+          <input
+            type="text"
+            id="authorName"
+            placeholder="Author name: "
+            required
+          />
+          <input type="text" id="bookName" placeholder="Book name: " required />
+          <textarea
+            id="description"
+            cols="23"
+            rows="10"
+            placeholder="Description"
+            minlength="15"
+            required
+          ></textarea>
+          <button id="add-btn" class="btn">Add</button>
+        </form>
+        <!-- /Library Form -->
+
+        <!-- Library Table -->
+        <div class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Author Name</th>
+                <th>Book Name</th>
+                <th colspan="2">Description</th>
+                <th>Serial Number</th>
+              </tr>
+            </thead>
+            <tbody data-table>
+              <!-- output will be rendered here -->
+            </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="3">Quantity</th>
+                <th data-quantity></th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <!-- /Library Table -->
+      </div>
+      <footer>
+        <p class="text-center">
+          &copy; <span id="year"></span> Student Library v1.0 - Made by
+          <a href="https://github.com/dostonnabotov">Doston Nabotov</a>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
