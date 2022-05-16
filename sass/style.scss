@@ -1,3 +1,15 @@
+/* Variables */
+
+$md-medium: 50em;
+$clr-primary: #015551;
+
+$neutral-100: #fff;
+$neutral-200: #e9e9e9;
+$neutral-300: #8a8a8a;
+$neutral-400: #444;
+$neutral-700: #222;
+
+/* Mixins */
 @mixin md($breakpoint) {
   @media screen and (min-width: $breakpoint) {
     & {
@@ -18,15 +30,6 @@
   flex-direction: $direction;
   gap: $gap;
 }
-
-$md-medium: 50em;
-$clr-primary: #015551;
-
-$neutral-100: #fff;
-$neutral-200: #e9e9e9;
-$neutral-300: #8a8a8a;
-$neutral-400: #444;
-$neutral-700: #222;
 
 /* Reset */
 *,
@@ -92,6 +95,10 @@ a {
   cursor: pointer;
   display: inline-block;
   width: 10rem;
+<<<<<<< HEAD
+=======
+  align-self: flex-start;
+>>>>>>> e72521bbd18e3a20f4fbbdb72f15612642c886d2
 
   text-decoration: none;
   font-weight: 700;
@@ -110,12 +117,16 @@ a {
       @include color($clr-primary, $neutral-100);
     }
   }
+  
+  @include md($md-medium) {
+    align-self: flex-end;
+  }
 }
 
 /* Main */
 /* _form */
 .form {
-  width: min(100%, 35rem);
+  width: min(100%, 45rem);
   margin: 5rem;
   @include flex(start, start, column);
 
@@ -125,7 +136,7 @@ a {
 }
 
 label {
-  width: 100%;
+  width: min(100%, 35rem);
   @include flex(start, space-between, column, 0.5rem);
   font-weight: 700;
 
