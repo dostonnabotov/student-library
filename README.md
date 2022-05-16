@@ -1,9 +1,11 @@
 # Student Library - v1.0
 
-#### - version 1.0.1
+- version 1.0.1
 
-Sass added
+  - Sass added
 
-#### - version 1.0.0
+- version 1.0.0
 
-HTML, CSS and JavaScript
+  - HTML
+  - CSS
+  - JavaScript
