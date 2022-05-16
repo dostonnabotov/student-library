@@ -123,7 +123,7 @@ a {
 /* Main */
 /* _form */
 .form {
-  width: min(100%, 35rem);
+  width: min(100%, 45rem);
   margin: 5rem;
   @include flex(start, start, column);
 
@@ -133,7 +133,7 @@ a {
 }
 
 label {
-  width: 100%;
+  width: min(100%, 35rem);
   @include flex(start, space-between, column, 0.5rem);
   font-weight: 700;
 
