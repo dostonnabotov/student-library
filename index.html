@@ -17,11 +17,25 @@
       <form class="form" data-add-form>
         <label for="authorName">
           Enter Author Name:
-          <input type="text" id="authorName" placeholder="e.g. J.R.R Tolkien" required />
+          <input
+            type="text"
+            id="authorName"
+            placeholder="e.g. J.R.R Tolkien"
+            minlength="2"
+            maxlength="100"
+            required
+          />
         </label>
         <label for="bookName">
           Enter Book Name:
-          <input type="text" id="bookName" placeholder="e.g. The Lord of the Rings" required />
+          <input
+            type="text"
+            id="bookName"
+            placeholder="e.g. The Lord of the Rings"
+            minlength="2"
+            maxlength="200"
+            required
+          />
         </label>
         <label for="description">
           Enter the Description:
