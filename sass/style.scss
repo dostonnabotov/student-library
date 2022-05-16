@@ -1,3 +1,15 @@
+/* Variables */
+
+$md-medium: 50em;
+$clr-primary: #015551;
+
+$neutral-100: #fff;
+$neutral-200: #e9e9e9;
+$neutral-300: #8a8a8a;
+$neutral-400: #444;
+$neutral-700: #222;
+
+/* Mixins */
 @mixin md($breakpoint) {
   @media screen and (min-width: $breakpoint) {
     & {
@@ -18,15 +30,6 @@
   flex-direction: $direction;
   gap: $gap;
 }
-
-$md-medium: 50em;
-$clr-primary: #015551;
-
-$neutral-100: #fff;
-$neutral-200: #e9e9e9;
-$neutral-300: #8a8a8a;
-$neutral-400: #444;
-$neutral-700: #222;
 
 /* Reset */
 *,
