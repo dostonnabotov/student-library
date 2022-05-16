@@ -92,7 +92,7 @@ a {
   cursor: pointer;
   display: inline-block;
   width: 10rem;
-  align-self: flex-end;
+  align-self: flex-start;
 
   text-decoration: none;
   font-weight: 700;
@@ -110,6 +110,10 @@ a {
     &:focus {
       @include color($clr-primary, $neutral-100);
     }
+  }
+  
+  @include md($md-medium) {
+    align-self: flex-end;
   }
 }
 
