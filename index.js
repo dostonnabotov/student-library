@@ -59,6 +59,8 @@ function createTableLayout() {
     let tableBookData = document.createElement("td");
     let tableDescriptionData = document.createElement("td");
     let tableIdData = document.createElement("td");
+    let modal = document.createElement("dialog");
+    tableDescriptionData.appendChild(modal);
 
     tableDescriptionData.setAttribute("colspan", 2);
 
