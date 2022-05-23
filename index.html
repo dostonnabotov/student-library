@@ -4,84 +4,47 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
     <title>Student Library</title>
   </head>
   <body>
-    <header>
-      <h1>Student Library</h1>
-    </header>
-    <main class="container">
-      <!-- Library Form -->
-      <form class="form" data-add-form>
-        <label for="authorName">
-          Enter Author Name:
-          <input
-            type="text"
-            id="authorName"
-            placeholder="e.g. J.R.R Tolkien"
-            minlength="2"
-            maxlength="100"
-            required
-          />
-        </label>
-        <label for="bookName">
-          Enter Book Name:
-          <input
-            type="text"
-            id="bookName"
-            placeholder="e.g. The Lord of the Rings"
-            minlength="2"
-            maxlength="200"
-            required
-          />
-        </label>
-        <label for="description">
-          Enter the Description:
-          <textarea
-            id="description"
-            cols="23"
-            rows="10"
-            minlength="15"
-            maxlength="300"
-            placeholder="Keep it short and brief..."
-            required
-          ></textarea>
-        </label>
-        <button id="add-btn" class="btn btn--outline">Add</button>
+    <main class="main container grid">
+      <form class="form-search grid">
+        <input type="text" name="search" id="search" />
+        <button type="submit" class="search-btn">Search</button>
+        <p id="search-output"></p>
       </form>
-      <!-- /Library Form -->
-
-      <!-- Library Table -->
+      <form class="form-add grid">
+        <div class="grid form-group">
+          <label for="author">Author <span class="danger">*</span> </label>
+          <input type="text" name="author" id="author" required />
+        </div>
+        <div class="grid form-group">
+          <label for="book">Book <span class="danger">*</span></label>
+          <input type="text" name="book" id="book" required />
+        </div>
+        <button type="submit" class="add-btn">Add</button>
+      </form>
       <div class="table-container">
         <table>
           <thead>
             <tr>
-              <th>Author Name</th>
-              <th>Book Name</th>
-              <th colspan="2">Description</th>
+              <th>Author</th>
+              <th>Book</th>
               <th>Serial Number</th>
+              <th>Edit</th>
             </tr>
           </thead>
-          <tbody data-table>
-            <!-- output will be rendered here -->
-          </tbody>
+          <tbody></tbody>
           <tfoot>
             <tr>
-              <th colspan="3">Quantity</th>
-              <th data-quantity></th>
+              <th colspan="2">Quantity</th>
+              <th id="quantity" colspan="2">0</th>
             </tr>
           </tfoot>
         </table>
       </div>
-      <!-- /Library Table -->
     </main>
-    <footer>
-      <p>
-        &copy; <span id="year"></span> Student Library v1.0 - Made by
-        <a href="https://github.com/dostonnabotov">Doston Nabotov</a>
-      </p>
-    </footer>
   </body>
+  <script src="index.js"></script>
 </html>

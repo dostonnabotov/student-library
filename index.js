@@ -1,116 +1,64 @@
-const table = document.querySelector("[data-table]");
-const quantity = document.querySelector("[data-quantity]");
+// Add Form Elements
+const form_add = document.querySelector(".form-add");
+const author = form_add.querySelector("#author");
+const book = form_add.querySelector("#book");
 
-const addForm = document.querySelector("[data-add-form]");
-const authorName = addForm.querySelector("#authorName");
-const bookName = addForm.querySelector("#bookName");
-const description = addForm.querySelector("#description");
+// Search Form elements
+const form_search = document.querySelector(".form-search");
+const search = form_search.querySelector("#search");
+const search_output = form_search.querySelector("#search-output");
 
-const LOCAL_STORAGE_LIBRARY = "student-library.books";
+const tbody = document.querySelector("tbody");
+const quantity = document.querySelector("#quantity");
 
-// default library books
-let library = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIBRARY)) || [
-  {
-    authorName: "J.K.Rowling",
-    bookName: "Harry Potter and Philosopher's Stone",
-    description:
-      "a young wizard who discovers his magical heritage on his eleventh birthday, when he receives a letter of acceptance to Hogwarts School of Witchcraft and Wizardry.",
-    id: "1650975223222",
-  },
-  {
-    authorName: "James Clear",
-    bookName: "Atomic Habits",
-    description:
-      "Atomic Habits is the definitive guide to breaking bad behaviors and adopting good ones in four steps",
-    id: "1650975327756",
-  },
-];
+function add_book(e) {
+  e.preventDefault();
+  tbody.innerHTML += `
+          <tr>
+            <td>${author.value}</td>
+            <td>${book.value}</td>
+            <td>${Math.floor(Math.random() * 1000) + 1}</td>
+            <td>
+              <button class="delete-btn" onclick="delete_btn(this)">Delete</button>
+            </td>
+          </tr>
+        `;
+  author.value = null;
+  book.value = null;
 
-// sort elements from array into the table
-function sortTable(author, book, description) {
-  return {
-    authorName: author,
-    bookName: book,
-    description: description,
-    id: Date.now().toString(),
-  };
+  updateQuantity();
 }
 
-// Add new book and push it to the array
-function addNewBook() {
-  const newAuthorName = authorName.value;
-  const newBookName = bookName.value;
-  const newDescription = description.value;
-  if (newAuthorName == null || newAuthorName === "") return;
-  const list = sortTable(newAuthorName, newBookName, newDescription);
-  authorName.value = null;
-  bookName.value = null;
-  description.value = null;
-  library.push(list);
+function updateQuantity() {
+  const tr = tbody.getElementsByTagName("TR");
+  quantity.innerText = tr.length;
 }
 
-// Create new table elements and its layout
-// Any feedback on how to reduce the lines of code for
-// better functionality are very welcome!
-function createTableLayout() {
-  library.forEach((books) => {
-    let tableRow = document.createElement("tr");
-    let tableAuthorData = document.createElement("td");
-    let tableBookData = document.createElement("td");
-    let tableDescriptionData = document.createElement("td");
-    let tableIdData = document.createElement("td");
-    let modal = document.createElement("dialog");
-    tableDescriptionData.appendChild(modal);
-
-    tableDescriptionData.setAttribute("colspan", 2);
-
-    tableAuthorData.innerText = books.authorName;
-    tableBookData.innerText = books.bookName;
-    tableDescriptionData.innerText = books.description;
-    tableIdData.innerText = books.id;
-
-    tableRow.appendChild(tableAuthorData);
-    tableRow.appendChild(tableBookData);
-    tableRow.appendChild(tableDescriptionData);
-    tableRow.appendChild(tableIdData);
-    table.appendChild(tableRow);
-  });
+// delete its closest ancestor, which is <tr> tag
+function delete_btn(element) {
+  element.closest("tr").remove();
+  updateQuantity();
 }
 
-// Clear previous table elements
-function clearTable(element) {
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
+function search_book(e) {
+  e.preventDefault();
+  const td = tbody.getElementsByTagName("TD");
+
+  if (td.length != 0) {
+    search_output.innerText = "";
+
+    for (let i = 0; i < td.length; i++) {
+      if (td.item(i).outerText === search.value) {
+        search_output.innerText = `Found!`;
+      }
+    }
+  } else {
+    search_output.innerText = `Library is empty!`;
   }
 }
 
-// Update the quantity
-function updateQuantity() {
-  quantity.innerText = library.length;
-}
-
-// Save data on LOCAL STORAGE
-function saveLocalStorage() {
-  localStorage.setItem(LOCAL_STORAGE_LIBRARY, JSON.stringify(library));
-}
-
-// function for running all other functions
-function render() {
-  clearTable(table);
-  createTableLayout();
-  updateQuantity();
-  saveLocalStorage();
-}
-
-// Book add Form handler
-addForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  addNewBook();
-  render();
-});
+form_add.addEventListener("submit", add_book);
+form_search.addEventListener("submit", search_book);
 
 // Get Full Year
-document.getElementById("year").innerText = new Date().getFullYear();
-
-// Render library books from default array and local storage
-render();
+// document.getElementById("year").innerText = new Date().getFullYear();

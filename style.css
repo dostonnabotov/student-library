@@ -1,0 +1,125 @@
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+input,
+button,
+textarea {
+  font: inherit;
+}
+
+/* General */
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1;
+}
+
+/* Utilities */
+.container {
+  width: min(100% - 2rem, 65rem);
+  margin-inline: auto;
+  padding-block: 2rem;
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+form {
+  width: min(100%, 30rem);
+}
+
+.form-group {
+  --gap: 0.3rem;
+}
+
+label,
+button {
+  font-weight: 600;
+}
+
+input[type="text"],
+textarea {
+  outline: none;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid #555;
+  transition: 200ms linear;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  --clr-br: rgba(97, 188, 245, 0.75);
+  box-shadow: 0px 0px 5px 2px var(--clr-br);
+  border-color: var(--clr-br);
+}
+
+.form-search {
+  grid-template-columns: 3fr 1fr;
+}
+
+.form-add {
+  grid-template-columns: 2fr 2fr;
+}
+
+.danger {
+  color: red;
+}
+
+/* Components */
+button {
+  cursor: pointer;
+}
+
+/* Main */
+/* _table */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: min(100%, 50rem);
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 1px solid #999;
+  margin-block: 1rem;
+}
+
+th,
+td {
+  width: 10rem;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid #999;
+}
+
+tbody td {
+  margin-inline: auto;
+  text-align: center;
+}
